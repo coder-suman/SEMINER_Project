@@ -329,7 +329,246 @@ Sentence generation using LSTM
 
 Speech synthesis using Text-to-Speech
 
+---
+
+
+
+# Project Folder Structure
+
+```
+SignLanguageAI_Project/
+
+│
+├── dataset/
+│   ├── hello/
+│   ├── thanks/
+│   ├── yes/
+│   ├── no/
+│   ├── school/
+│   └── ...
+│
+├── mediapipe_detection/
+│   └── hand_tracking.py
+│
+├── cnn_model/
+│   ├── train_cnn.py
+│   ├── predict_gesture.py
+│   └── gesture_model.h5
+│
+├── lstm_model/
+│   ├── train_lstm.py
+│   ├── generate_sentence.py
+│   └── sentence_model.h5
+│
+├── tts_module/
+│   └── speak.py
+│
+├── utils/
+│   └── helper_functions.py
+│
+├── saved_sequences/
+│   └── sequences.pkl
+│
+├── main.py
+│
+├── requirements.txt
+│
+└── README.md
+```
 
 ---
 
-If you want, I can give you a **ready folder structure + file-wise code plan** so you can start building the project step by step without confusion.
+
+
+## dataset/
+
+Stores gesture images.
+
+Example:
+
+```
+dataset/
+   hello/
+   thanks/
+   school/
+```
+
+Each folder = one gesture class for CNN training.
+
+---
+
+## mediapipe_detection/
+
+Contains hand detection code.
+
+File:
+
+```
+hand_tracking.py
+```
+
+Purpose:
+
+Detects **21 hand landmarks** from webcam.
+
+---
+
+## cnn_model/
+
+Handles gesture recognition.
+
+Files:
+
+```
+train_cnn.py
+predict_gesture.py
+gesture_model.h5
+```
+
+Role:
+
+Image → word prediction
+
+Example:
+
+Gesture image → HELLO
+
+---
+
+## lstm_model/
+
+Handles Generative AI sentence creation.
+
+Files:
+
+```
+train_lstm.py
+generate_sentence.py
+sentence_model.h5
+```
+
+Role:
+
+Word sequence → sentence generation
+
+Example:
+
+```
+HELLO I GO SCHOOL
+```
+
+becomes
+
+```
+Hello, I am going to school.
+```
+
+---
+
+## tts_module/
+
+Speech output module.
+
+File:
+
+```
+speak.py
+```
+
+Role:
+
+Sentence → audio output
+
+Example:
+
+System speaks generated sentence 🔊
+
+---
+
+## utils/
+
+Helper functions stored here.
+
+Example:
+
+```
+helper_functions.py
+```
+
+Can include:
+
+* preprocessing functions
+* dataset loading
+* label encoding
+* sequence formatting
+
+Keeps project clean.
+
+---
+
+## saved_sequences/
+
+Stores detected gesture sequences.
+
+Example:
+
+```
+["HELLO","I","GO","SCHOOL"]
+```
+
+Saved as:
+
+```
+sequences.pkl
+```
+
+Used by LSTM model.
+
+---
+
+## main.py (Most important file)
+
+Runs entire system.
+
+Pipeline inside:
+
+```
+Webcam start
+↓
+Detect hand
+↓
+Predict gesture
+↓
+Store sequence
+↓
+Generate sentence
+↓
+Convert to speech
+```
+
+This file integrates everything.
+
+---
+
+## requirements.txt
+
+Stores library list:
+
+Example:
+
+```
+opencv-python
+mediapipe
+tensorflow
+keras
+numpy
+nltk
+pyttsx3
+```
+
+
+---
+
+
+---
+
