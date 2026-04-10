@@ -329,22 +329,6 @@ Sentence generation using LSTM
 
 Speech synthesis using Text-to-Speech
 
-Teachers usually expect this structure in MCA/BCA documentation.
-
----
-
-# Step 13: Final project title you should use
-
-**Generative AI Based Real-Time Sign Language to Sentence and Speech Conversion System Using CNN and LSTM**
-
-This clearly signals:
-
-Computer Vision ✔
-Deep Learning ✔
-Generative AI ✔
-Assistive Technology ✔
-
-Strong academic impression.
 
 ---
 
